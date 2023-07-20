@@ -1,0 +1,77 @@
+<app-dashboard></app-dashboard>
+<div class = "outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Add Student</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="addstudentForm">
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="addstudentForm.controls['FirstName'].dirty && addstudentForm.hasError('required','FirstName')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="FirstName" type="text" placeholder="First Name">
+                                </div>
+                            </div>
+                            <small *ngIf="addstudentForm.controls['FirstName'].dirty && addstudentForm.controls['FirstName'].hasError('required')" class="text-danger">*first name is required</small>      
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="addstudentForm.controls['LastName'].dirty && addstudentForm.hasError('required','LastName')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="LastName" type="text" placeholder="Last Name">
+                                </div>
+                            </div>
+                            <small *ngIf="addstudentForm.controls['LastName'].dirty && addstudentForm.controls['LastName'].hasError('required')" class="text-danger">*last name is required</small>
+
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="addstudentForm.controls['LoginEmailId'].dirty && addstudentForm.hasError('required','LoginEmailId')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName = "LoginEmailId" type="text" placeholder="Useremail">                                
+                                </div>
+                                <small *ngIf="addstudentForm.controls['LoginEmailId'].dirty && addstudentForm.controls['LoginEmailId'].hasError('required')" class="text-danger">*Email is required</small>
+                                <small *ngIf="addstudentForm.controls['LoginEmailId'].dirty && addstudentForm.controls['LoginEmailId'].hasError('email')" class="text-danger">*Invalid email address</small>
+                            </div>  
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="addstudentForm.controls['Password'].dirty && addstudentForm.hasError('required','Password')">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="Password" [type]="type" placeholder="Password">
+                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>                                
+                                </div>
+                            </div>
+                            <small *ngIf="addstudentForm.controls['Password'].dirty && addstudentForm.controls['Password'].hasError('pattern')" class="text-danger">*Password must contain at least 8 characters, including an uppercase letter, a lowercase letter, a number, and a special symbol</small>
+                             
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="addstudentForm.controls['Dob'].dirty && addstudentForm.hasError('required','Dob')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="Dob" type="date" placeholder="Dob">
+                                </div>
+                            </div> 
+                            <small *ngIf="addstudentForm.controls['Dob'].dirty && addstudentForm.controls['Dob'].hasError('required')" class="text-danger">*dob is required</small>
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="addstudentForm.controls['Phone'].dirty && addstudentForm.hasError('required','Phone')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="Phone" type="text" placeholder="Phone Number">
+                                </div>
+                            </div>
+                            <small *ngIf="addstudentForm.controls['Phone'].dirty && addstudentForm.controls['Phone'].hasError('required')" class="text-danger">*phone number is required</small>
+
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="addstudentForm.controls['Address'].dirty && addstudentForm.hasError('required','Address')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="Address" type="text" placeholder="Address">
+                                </div>
+                            </div> 
+                            <small *ngIf="addstudentForm.controls['Address'].dirty && addstudentForm.controls['Address'].hasError('required')" class="text-danger">*address name is required</small>
+                            
+                            <button (click)="onAddStudent()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Add</button>    
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

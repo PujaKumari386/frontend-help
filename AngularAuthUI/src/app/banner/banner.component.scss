@@ -1,0 +1,15 @@
+.banner {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .banner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
